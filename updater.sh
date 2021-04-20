@@ -3,8 +3,8 @@
 set -e
 
 if [ "$1" = cleanup ]; then
-  rm -rf .github .gitignore .nojekyll CNAME
-  find . -name .git -prune -false -o -name '*.sh' -delete
+  rm -rf .git .github .gitignore .nojekyll CNAME
+  find . -name '*.sh' -delete
   exit 0
 fi
 
