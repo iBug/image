@@ -10,7 +10,7 @@ set -e
 REMOTE=iBug/image
 BRANCH=master
 
-REMOTE2=iBug-web/image
+REMOTE2=iBugOne/image
 BRANCH2=master
 
 ecode=0
