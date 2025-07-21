@@ -1,0 +1,21 @@
+name: squash
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch: {}
+
+jobs:
+  squash:
+    if: "! contains(toJSON(github.event.commits.*.message), '[ci skip]')"
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Run squasher script
+      run: bash updater.sh
+      env:
+        SSH_KEY_E: ${{ secrets.SSH_KEY_E }}
+        SSH_KEY_E2: ${{ secrets.SSH_KEY_E2 }}
+        #NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        #NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
